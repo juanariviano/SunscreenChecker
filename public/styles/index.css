@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    background-color: yellow;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body div h1 {
+    margin-bottom: 15px;
+    font-weight: bolder;
+}
+
+body div form {
+    display: flex;
+    flex-direction: column;
+}
+
+body div form label {
+    font-family: "Jost", sans-serif;
+    margin-bottom: 3px;
+}
+
+body div form input {
+    font-family: "Jost", sans-serif;
+    background-color: yellow;
+    width: 280px;
+    height: 15px;
+    padding: 7px 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+body div form p {
+    font-size: small;
+    margin-bottom: 10px;
+    margin-left: 3px;
+}
+
+#submitButton {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+#submitButton:hover {
+    background-color: red;
+    transition: 0.3s ease;
+}
+

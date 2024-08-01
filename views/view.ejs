@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you need sunscreen?</title>
+    <link rel="stylesheet" href="/styles/view.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+</head>
+<body>
+    <div>
+        <h1>Result</h1>
+        <h3>UV Index : <%= uvIdx %></h3> 
+        <h3>UV Max : <%= uvMax %></h3> 
+        <% if (uvIdx <= 2) { %>
+            <h3>Exposure Category : Low</h3>
+            <h2>Sunscreen SPF 15</h2>
+        <% } else if (uvIdx >= 3 && uvIdx <= 5){%>
+            <h3>Exposure Category : Moderate</h3>
+            <h2>Sunscreen SPF 15-30</h2>
+        <% } else if (uvIdx >= 6 && uvIdx <= 7){%>
+            <h3>Exposure Category : High</h3>
+            <h2>Sunscreen SPF 30-50</h2>
+        <% } else if (uvIdx >= 8 && uvIdx <= 10){%>
+            <h3>Exposure Category : Very High</h3>
+            <h2>Sunscreen SPF 50+</h2>
+        <% } else if (uvIdx >= 11){%>
+            <h3>Exposure Category : Extreme</h3>
+            <h2>Sunscreen SPF 50+</h2>
+        <% } %>
+    </div>
+</body>
+</html>

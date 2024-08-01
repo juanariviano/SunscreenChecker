@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do you need sunscreen?</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div>
+      <h1>Check Your Sunscreen Needs.</h1>
+      <form method="post" onsubmit="return validation()">
+        <label for="latitude">*Latitude</label>
+        <input type="text" name="latitude" placeholder="-90.00 to 90.00" />
+        <p id="latitude"></p>
+        <label for="longitude">*Longitude</label>
+        <input type="text" name="longitude" placeholder="-180.00 to 180.00" />
+        <p id="longitude"></p>
+        <label for="altitude">Altitude</label>
+        <input type="text" name="altitude" placeholder="0 to 10000" />
+        <p id="altitude"></p>
+        <label for="date">Date</label>
+        <input type="datetime-local" name="date" placeholder="Date" />
+        <input id="submitButton" type="submit" value="→" formaction="/getUv" />
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      function validation() {
+        var lat = $('input[name="latitude"]').val();
+        if (lat < -90 || lat > 90) {
+          $("#latitude").text(
+            "Latitude must be bigger than -90 and less than 90"
+          );
+          $('input[name="latitude"]').css("border", "1px solid red");
+          return false;
+        } else if (lat == "") {
+          $("#latitude").text("Latitude must be filled");
+          return false;
+        } else {
+          $('input[name="latitude"]').css("border", "1px solid green");
+          $("#latitude").text("");
+        }
+
+        var lng = $('input[name="longitude"]').val();
+        if (lng < -180 || lng > 180) {
+          $("#longitude").text(
+            "Longitude must be bigger than -180 and less than 180"
+          );
+          $('input[name="longitude"]').css("border", "1px solid red");
+          return false;
+        } else if (lng == "") {
+          $("#longitude").text("Longitude must be filled");
+          return false;
+        } else {
+            $("#longitude").text(
+            ""
+          );
+          $('input[name="longitude"]').css("border", "1px solid green");
+        }
+
+        var alt = $('input[name="altitude"]').val();
+        if (alt < 0 || alt > 10000) {
+          $("#altitude").text(
+            "Altitude must be bigger than 0 and less than 10000"
+          );
+          $('input[name="altitude"]').css("border", "1px solid red");
+          return false;
+        }else {
+            $("#altitude").text(
+            ""
+          );
+          $('input[name="altitude"]').css("border", "1px solid green");
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
